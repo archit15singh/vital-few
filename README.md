@@ -11,7 +11,7 @@ Not a Deep Research writer. Not a scanner. Not a product. The spec is [LOOP.md](
 Two files. No runtime.
 
 ```bash
-git clone https://github.com/Mr-Ashish/vital-few.git
+git clone https://github.com/archit15singh/vital-few.git
 ```
 
 Copy `SKILL.md` and `LOOP.md` into your agent’s skills directory as `vital-few`, or point the agent at the clone.
@@ -47,4 +47,4 @@ Issues and pull requests are welcome. Open an issue before a large change. Chang
 
 ## License
 
-[MIT](LICENSE) © 2026 [Mr-Ashish](https://github.com/Mr-Ashish)
+[MIT](LICENSE) © 2026 [Archit Singh](https://github.com/archit15singh)
