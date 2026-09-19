@@ -2,53 +2,29 @@
 
 Vital few: name an object, compress the field, compete, commit, stop.
 
-An agent skill and a spec. Give it a terse pointer. It returns a reusable frame and a top-k you would actually work. Then it stops.
+An agent skill. Point it at a name, a URL, or “things like X”. It returns a frame and a top-k you would work. Then it stops.
 
-It is not a Deep Research report writer, a scanner, a product, or a 15-stage pipeline. The spec lives in [LOOP.md](LOOP.md). The runbook lives in [SKILL.md](SKILL.md).
+Not a Deep Research writer. Not a scanner. Not a product. The spec is [LOOP.md](LOOP.md). The runbook is [SKILL.md](SKILL.md).
 
 ## Install
 
-Copy the two files into your agent's skills directory as `vital-few`:
+Two files. No runtime.
 
 ```bash
 git clone https://github.com/Mr-Ashish/vital-few.git
-# then copy SKILL.md and LOOP.md next to each other into the skills dir
 ```
 
-Or clone the repo and point the agent at it. No runtime, no package manager, no API key.
+Copy `SKILL.md` and `LOOP.md` into your agent’s skills directory as `vital-few`, or point the agent at the clone.
 
 ## Usage
 
-Use when the user names a thing, pastes a URL, or says "things like X", and wants the field compressed, not toured. Also when they ask for 80/20 ontology, competing hypotheses, or a top-k.
+Fire it when the user wants a field compressed, not toured: a terse pointer, 80/20 ontology, competing hypotheses, a top-k.
 
-The agent follows [LOOP.md](LOOP.md) steps 1–11. Stay on the cut (3–5 substeps per step). Recurse only if that step's output blocks the next. Never recurse `siblings`, `rank`, or `top-k` more than once.
+Example pointer: `anthropic autonomous vulnerability patcher`. Worked pass: [examples/worked-example.md](examples/worked-example.md).
 
-A finished run emits:
+Do not fire it for a single-file bugfix, a known-API look-up, or implementing the top-k.
 
-1. `object` + `job`
-2. Instance card (is / is not / limits) with primary URLs
-3. Sibling front (non-dominated set + named tail) + sweep axes
-4. Ontology entities, binding relation, first-cut question, genera
-5. Frame (name, source, axes, framing sentence)
-6. Deduped idea list after CCA
-7. Competing hypotheses and the resolution rule
-8. Top-k from the front, plus item-1 witness (`yes`/`no` + one line)
-9. Short form + aspiration four-check
-
-**Stop when** all four hold: the framing sentence names the ontology; top-k is from the front and k is not N; you would start item 1 tomorrow; no further search is queued. If the witness is `no`, recut once inside step 10, then stop anyway.
-
-Do not use this skill for a single-file bugfix, a look-up of a known API, or implementing the top-k.
-
-## Files
-
-| File | Role |
-|---|---|
-| [SKILL.md](SKILL.md) | Agent runbook. Frontmatter `name: vital-few`. |
-| [LOOP.md](LOOP.md) | Spec. Recursive breakdown of every step. Rank geometry is here. |
-| [examples/worked-example.md](examples/worked-example.md) | One pass: autonomous vuln find-and-fix harnesses. |
-| [LICENSE](LICENSE) | MIT. |
-
-## Short form
+The agent runs [LOOP.md](LOOP.md). What it must emit, and when to stop, is in [SKILL.md](SKILL.md).
 
 ```
 name → instance → siblings → rank
@@ -56,9 +32,18 @@ name → instance → siblings → rank
     → hypothesis-rank → top-k → extract loop
 ```
 
+## Files
+
+| File | Role |
+|---|---|
+| [SKILL.md](SKILL.md) | Runbook. Frontmatter `name: vital-few`. |
+| [LOOP.md](LOOP.md) | Spec. Every step, rank geometry, anti-patterns. |
+| [examples/worked-example.md](examples/worked-example.md) | One pass on vuln find-and-fix harnesses. |
+| [LICENSE](LICENSE) | MIT. |
+
 ## Contributing
 
-Issues and pull requests are welcome. Open an issue before a large change. The spec is [LOOP.md](LOOP.md); do not fork the procedure inside the README.
+Issues and pull requests are welcome. Open an issue before a large change. Change the procedure in [LOOP.md](LOOP.md), not here.
 
 ## License
 
